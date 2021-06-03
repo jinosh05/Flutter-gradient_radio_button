@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 
 class CustomRadioWidget<T> extends StatelessWidget {
-  final T? value;
+  final T value;
   final T? groupValue;
   final ValueChanged<T?>? onChanged;
   final double width;
   final double height;
+  final List<Color> gradients;
 
   CustomRadioWidget(
-      {this.value,
+      {required this.value,
       this.groupValue,
       this.onChanged,
       this.width = 32,
-      this.height = 32});
+      this.height = 32,
+      this.gradients = const [
+        Colors.red,
+        Colors.yellow,
+      ]});
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +32,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
           width: this.width,
           decoration: ShapeDecoration(
             shape: CircleBorder(),
-            gradient: LinearGradient(
-              colors: [
-                Colors.red,
-                Colors.yellow,
-              ],
-            ),
+            gradient: LinearGradient(colors: gradients),
           ),
           child: Center(
             child: Container(
@@ -46,13 +46,15 @@ class CustomRadioWidget<T> extends StatelessWidget {
                   shape: CircleBorder(),
                   gradient: LinearGradient(
                     colors: value == groupValue
-                        ? [
-                            Colors.yellow,
-                            Colors.red,
-                          ]
+                        ? gradients
                         : [
-                            Theme.of(context).scaffoldBackgroundColor,
-                            Theme.of(context).scaffoldBackgroundColor,
+                            for (var i = 0;
+                                i <
+                                    (gradients.length <= 2
+                                        ? 2
+                                        : gradients.length);
+                                i++)
+                              Theme.of(context).scaffoldBackgroundColor,
                           ],
                   ),
                 ),

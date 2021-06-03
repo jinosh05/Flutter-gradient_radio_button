@@ -8,14 +8,14 @@ void main(List<String> args) {
 }
 
 class CustomGradient extends StatefulWidget {
-  CustomGradient({Key key}) : super(key: key);
+  CustomGradient({Key? key}) : super(key: key);
 
   @override
   _CustomGradientState createState() => _CustomGradientState();
 }
 
 class _CustomGradientState extends State<CustomGradient> {
-  String _radioValue;
+  String? _radioValue;
   @override
   void initState() {
     super.initState();
@@ -30,51 +30,51 @@ class _CustomGradientState extends State<CustomGradient> {
       ),
       body: Column(
         children: [
-      Row(
-        children: [
-          CustomRadioWidget(
-            value: "0",
-            height: 25,
-            groupValue: _radioValue,
-            onChanged: (String value) {
-              setState(() {
-                _radioValue = value;
-              });
-            },
+          Row(
+            children: [
+              CustomRadioWidget(
+                value: "0",
+                height: 25,
+                groupValue: _radioValue,
+                onChanged: (String? value) {
+                  setState(() {
+                    _radioValue = value;
+                  });
+                },
+              ),
+              Text(" Option 1")
+            ],
           ),
-          Text(" Option 1")
-        ],
-      ),
-      Row(
-        children: [
-          CustomRadioWidget(
-            value: "1",
-            height: 25,
-            groupValue: _radioValue,
-            onChanged: (String value) {
-              setState(() {
-                _radioValue = value;
-              });
-            },
+          Row(
+            children: [
+              CustomRadioWidget(
+                value: "1",
+                height: 25,
+                groupValue: _radioValue,
+                onChanged: (String? value) {
+                  setState(() {
+                    _radioValue = value;
+                  });
+                },
+              ),
+              Text(" Option 2")
+            ],
           ),
-          Text(" Option 2")
-        ],
-      ),
-      Row(
-        children: [
-          CustomRadioWidget(
-            value: "2",
-            height: 25,
-            groupValue: _radioValue,
-            onChanged: (String value) {
-              setState(() {
-                _radioValue = value;
-              });
-            },
-          ),
-          Text(" Option 3")
-        ],
-      )
+          Row(
+            children: [
+              CustomRadioWidget(
+                value: "2",
+                height: 25,
+                groupValue: _radioValue,
+                onChanged: (String? value) {
+                  setState(() {
+                    _radioValue = value;
+                  });
+                },
+              ),
+              Text(" Option 3")
+            ],
+          )
         ],
       ),
     );

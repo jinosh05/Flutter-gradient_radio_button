@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomRadioWidget<T> extends StatelessWidget {
-  final T value;
-  final T groupValue;
-  final ValueChanged<T> onChanged;
+  final T? value;
+  final T? groupValue;
+  final ValueChanged<T?>? onChanged;
   final double width;
   final double height;
 
@@ -20,7 +20,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
       padding: EdgeInsets.all(15),
       child: GestureDetector(
         onTap: () {
-          onChanged(this.value);
+          onChanged!(this.value);
         },
         child: Container(
           height: this.height,

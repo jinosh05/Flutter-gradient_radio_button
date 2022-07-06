@@ -10,6 +10,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
   final double borderRadius;
   final double margin;
   final Widget? label;
+  final bool isVertical;
 
   CustomRadioWidget({
     required this.value,
@@ -24,6 +25,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
     this.borderRadius = 8,
     this.margin = 15,
     this.label,
+    this.isVertical = false,
   });
 
   @override
@@ -34,7 +36,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
       },
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
-        direction: Axis.horizontal,
+        direction: isVertical ? Axis.vertical : Axis.horizontal,
         children: [
           Container(
             margin: EdgeInsets.all(margin),

@@ -7,17 +7,20 @@ class CustomRadioWidget<T> extends StatelessWidget {
   final double width;
   final double height;
   final List<Color> gradients;
+  final double borderRadius;
 
-  CustomRadioWidget(
-      {required this.value,
-      this.groupValue,
-      this.onChanged,
-      this.width = 32,
-      this.height = 32,
-      this.gradients = const [
-        Colors.red,
-        Colors.yellow,
-      ]});
+  CustomRadioWidget({
+    required this.value,
+    this.groupValue,
+    this.onChanged,
+    this.width = 32,
+    this.height = 32,
+    this.gradients = const [
+      Colors.red,
+      Colors.yellow,
+    ],
+    this.borderRadius = 8,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +40,8 @@ class CustomRadioWidget<T> extends StatelessWidget {
           ),
           child: Container(
             padding: EdgeInsets.all(3),
-            height: this.height - 8,
-            width: this.width - 8,
+            height: this.height - borderRadius,
+            width: this.width - borderRadius,
             decoration:
                 BoxDecoration(color: Colors.white, shape: BoxShape.circle),
             child: Container(

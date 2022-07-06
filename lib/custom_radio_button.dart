@@ -30,33 +30,32 @@ class CustomRadioWidget<T> extends StatelessWidget {
         child: Container(
           height: this.height,
           width: this.width,
+          alignment: Alignment.center,
           decoration: ShapeDecoration(
             shape: CircleBorder(),
             gradient: LinearGradient(colors: gradients),
           ),
-          child: Center(
+          child: Container(
+            padding: EdgeInsets.all(3),
+            height: this.height - 8,
+            width: this.width - 8,
+            decoration:
+                BoxDecoration(color: Colors.white, shape: BoxShape.circle),
             child: Container(
-              padding: EdgeInsets.all(3),
-              height: this.height - 8,
-              width: this.width - 8,
-              decoration:
-                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-              child: Container(
-                decoration: ShapeDecoration(
-                  shape: CircleBorder(),
-                  gradient: LinearGradient(
-                    colors: value == groupValue
-                        ? gradients
-                        : [
-                            for (var i = 0;
-                                i <
-                                    (gradients.length <= 2
-                                        ? 2
-                                        : gradients.length);
-                                i++)
-                              Theme.of(context).scaffoldBackgroundColor,
-                          ],
-                  ),
+              decoration: ShapeDecoration(
+                shape: CircleBorder(),
+                gradient: LinearGradient(
+                  colors: value == groupValue
+                      ? gradients
+                      : [
+                          for (var i = 0;
+                              i <
+                                  (gradients.length <= 2
+                                      ? 2
+                                      : gradients.length);
+                              i++)
+                            Theme.of(context).scaffoldBackgroundColor,
+                        ],
                 ),
               ),
             ),

@@ -30,50 +30,38 @@ class _CustomGradientState extends State<CustomGradient> {
       ),
       body: Column(
         children: [
-          Row(
-            children: [
-              CustomRadioWidget(
-                value: "0",
-                height: 25,
-                groupValue: _radioValue,
-                onChanged: (String? value) {
-                  setState(() {
-                    _radioValue = value;
-                  });
-                },
-              ),
-              Text(" Option 1")
-            ],
+          CustomRadioWidget(
+            value: "0",
+            height: 25,
+            groupValue: _radioValue,
+            onChanged: (String? value) {
+              setState(() {
+                _radioValue = value;
+              });
+            },
+            label: Text(" Option 1"),
           ),
-          Row(
-            children: [
-              CustomRadioWidget(
-                value: "1",
-                height: 25,
-                groupValue: _radioValue,
-                onChanged: (String? value) {
-                  setState(() {
-                    _radioValue = value;
-                  });
-                },
-              ),
-              Text(" Option 2")
-            ],
+          CustomRadioWidget(
+            value: "1",
+            height: 25,
+            groupValue: _radioValue,
+            onChanged: (String? value) {
+              setState(() {
+                _radioValue = value;
+              });
+            },
+            label: Text(" Option 2"),
           ),
-          Row(
-            children: [
-              CustomRadioWidget(
-                value: "2",
-                height: 25,
-                groupValue: _radioValue,
-                onChanged: (String? value) {
-                  setState(() {
-                    _radioValue = value;
-                  });
-                },
-              ),
-              Text(" Option 3")
-            ],
+          CustomRadioWidget(
+            value: "2",
+            height: 25,
+            groupValue: _radioValue,
+            onChanged: (String? value) {
+              setState(() {
+                _radioValue = value;
+              });
+            },
+            label: Text(" Option 3"),
           )
         ],
       ),

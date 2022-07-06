@@ -8,6 +8,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
   final double height;
   final List<Color> gradients;
   final double borderRadius;
+  final double margin;
 
   CustomRadioWidget({
     required this.value,
@@ -20,46 +21,42 @@ class CustomRadioWidget<T> extends StatelessWidget {
       Colors.yellow,
     ],
     this.borderRadius = 8,
+    this.margin = 15,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(15),
-      child: GestureDetector(
-        onTap: () {
-          onChanged!(this.value);
-        },
+    return GestureDetector(
+      onTap: () {
+        onChanged!(this.value);
+      },
+      child: Container(
+        margin: EdgeInsets.all(margin),
+        height: this.height,
+        width: this.width,
+        alignment: Alignment.center,
+        decoration: ShapeDecoration(
+          shape: CircleBorder(),
+          gradient: LinearGradient(colors: gradients),
+        ),
         child: Container(
-          height: this.height,
-          width: this.width,
-          alignment: Alignment.center,
-          decoration: ShapeDecoration(
-            shape: CircleBorder(),
-            gradient: LinearGradient(colors: gradients),
-          ),
+          padding: EdgeInsets.all(3),
+          height: this.height - borderRadius,
+          width: this.width - borderRadius,
+          decoration:
+              BoxDecoration(color: Colors.white, shape: BoxShape.circle),
           child: Container(
-            padding: EdgeInsets.all(3),
-            height: this.height - borderRadius,
-            width: this.width - borderRadius,
-            decoration:
-                BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-            child: Container(
-              decoration: ShapeDecoration(
-                shape: CircleBorder(),
-                gradient: LinearGradient(
-                  colors: value == groupValue
-                      ? gradients
-                      : [
-                          for (var i = 0;
-                              i <
-                                  (gradients.length <= 2
-                                      ? 2
-                                      : gradients.length);
-                              i++)
-                            Theme.of(context).scaffoldBackgroundColor,
-                        ],
-                ),
+            decoration: ShapeDecoration(
+              shape: CircleBorder(),
+              gradient: LinearGradient(
+                colors: value == groupValue
+                    ? gradients
+                    : [
+                        for (var i = 0;
+                            i < (gradients.length <= 2 ? 2 : gradients.length);
+                            i++)
+                          Theme.of(context).scaffoldBackgroundColor,
+                      ],
               ),
             ),
           ),

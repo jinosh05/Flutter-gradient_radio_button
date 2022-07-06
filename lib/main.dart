@@ -26,7 +26,7 @@ class _CustomGradientState extends State<CustomGradient> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Gradient"),
+        title: Text("Custom Gradient Button"),
       ),
       body: Column(
         children: [

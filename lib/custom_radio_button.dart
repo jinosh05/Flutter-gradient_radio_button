@@ -9,6 +9,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
   final List<Color> gradients;
   final double borderRadius;
   final double margin;
+  final Widget? label;
 
   CustomRadioWidget({
     required this.value,
@@ -22,6 +23,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
     ],
     this.borderRadius = 8,
     this.margin = 15,
+    this.label,
   });
 
   @override
@@ -30,37 +32,47 @@ class CustomRadioWidget<T> extends StatelessWidget {
       onTap: () {
         onChanged!(this.value);
       },
-      child: Container(
-        margin: EdgeInsets.all(margin),
-        height: this.height,
-        width: this.width,
-        alignment: Alignment.center,
-        decoration: ShapeDecoration(
-          shape: CircleBorder(),
-          gradient: LinearGradient(colors: gradients),
-        ),
-        child: Container(
-          padding: EdgeInsets.all(3),
-          height: this.height - borderRadius,
-          width: this.width - borderRadius,
-          decoration:
-              BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-          child: Container(
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        direction: Axis.horizontal,
+        children: [
+          Container(
+            margin: EdgeInsets.all(margin),
+            height: this.height,
+            width: this.width,
+            alignment: Alignment.center,
             decoration: ShapeDecoration(
               shape: CircleBorder(),
-              gradient: LinearGradient(
-                colors: value == groupValue
-                    ? gradients
-                    : [
-                        for (var i = 0;
-                            i < (gradients.length <= 2 ? 2 : gradients.length);
-                            i++)
-                          Theme.of(context).scaffoldBackgroundColor,
-                      ],
+              gradient: LinearGradient(colors: gradients),
+            ),
+            child: Container(
+              padding: EdgeInsets.all(3),
+              height: this.height - borderRadius,
+              width: this.width - borderRadius,
+              decoration:
+                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              child: Container(
+                decoration: ShapeDecoration(
+                  shape: CircleBorder(),
+                  gradient: LinearGradient(
+                    colors: value == groupValue
+                        ? gradients
+                        : [
+                            for (var i = 0;
+                                i <
+                                    (gradients.length <= 2
+                                        ? 2
+                                        : gradients.length);
+                                i++)
+                              Theme.of(context).scaffoldBackgroundColor,
+                          ],
+                  ),
+                ),
               ),
             ),
           ),
-        ),
+          label ?? SizedBox()
+        ],
       ),
     );
   }

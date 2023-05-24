@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:gradient_radio_button/custom_radio_button.dart';
 
 void main(List<String> args) {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: CustomGradient(),
   ));
 }
 
 class CustomGradient extends StatefulWidget {
-  CustomGradient({Key? key}) : super(key: key);
+  const CustomGradient({Key? key}) : super(key: key);
 
   @override
-  _CustomGradientState createState() => _CustomGradientState();
+  CustomGradientState createState() => CustomGradientState();
 }
 
-class _CustomGradientState extends State<CustomGradient> {
+class CustomGradientState extends State<CustomGradient> {
   String? _radioValue;
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _CustomGradientState extends State<CustomGradient> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Custom Gradient Button"),
+        title: const Text("Custom Gradient Button"),
       ),
       body: Column(
         children: [
@@ -39,7 +39,7 @@ class _CustomGradientState extends State<CustomGradient> {
                 _radioValue = value;
               });
             },
-            label: Text(" Option 1"),
+            label: const Text(" Option 1"),
           ),
           CustomRadioWidget(
             value: "1",
@@ -50,7 +50,7 @@ class _CustomGradientState extends State<CustomGradient> {
                 _radioValue = value;
               });
             },
-            label: Text(" Option 2"),
+            label: const Text(" Option 2"),
           ),
           CustomRadioWidget(
             value: "2",
@@ -61,7 +61,7 @@ class _CustomGradientState extends State<CustomGradient> {
                 _radioValue = value;
               });
             },
-            label: Text(" Option 3"),
+            label: const Text(" Option 3"),
           )
         ],
       ),

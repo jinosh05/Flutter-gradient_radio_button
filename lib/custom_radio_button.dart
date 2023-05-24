@@ -12,7 +12,8 @@ class CustomRadioWidget<T> extends StatelessWidget {
   final Widget? label;
   final bool isVertical;
 
-  CustomRadioWidget({
+  const CustomRadioWidget({
+    super.key,
     required this.value,
     this.groupValue,
     this.onChanged,
@@ -44,18 +45,18 @@ class CustomRadioWidget<T> extends StatelessWidget {
             width: this.width,
             alignment: Alignment.center,
             decoration: ShapeDecoration(
-              shape: CircleBorder(),
+              shape: const CircleBorder(),
               gradient: LinearGradient(colors: gradients),
             ),
             child: Container(
-              padding: EdgeInsets.all(3),
+              padding: const EdgeInsets.all(3),
               height: this.height - borderRadius,
               width: this.width - borderRadius,
-              decoration:
-                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              decoration: const BoxDecoration(
+                  color: Colors.white, shape: BoxShape.circle),
               child: Container(
                 decoration: ShapeDecoration(
-                  shape: CircleBorder(),
+                  shape: const CircleBorder(),
                   gradient: LinearGradient(
                     colors: value == groupValue
                         ? gradients
@@ -73,7 +74,7 @@ class CustomRadioWidget<T> extends StatelessWidget {
               ),
             ),
           ),
-          label ?? SizedBox()
+          label ?? const SizedBox()
         ],
       ),
     );
